@@ -1,4 +1,11 @@
 
+### To Do
+# Split up process:
+# - make data frame of images
+# - convert images from png to jpeg
+# - build clusters & exclude white
+# - build output dataset 
+
 # get list of pokemon and matching shiny versions
 all_icons <- list.files(path='pokemon_icons')
 
@@ -43,12 +50,23 @@ im <-  rm.alpha(im)
 
 
 
-### To fix
+### To fix. Now done.
 plot(im)
 # plot(im) shows colour lines extended rather than leaving image transparent 
 # might be issues related to reading in png files
 
 
+library(png)
+test_img <- paste0("pokemon_icons/",pkmn_df$file[7])
+img <- readPNG(test_img)
+library("jpeg")
+writeJPEG(img, target = "Converted.jpeg", quality = 1)
+
+test_jpeg <- "Converted.jpeg"
+im <- load.image(test_jpeg)
+im2 <- load.image(test_img)
+plot(im2)
+plot(im)
 
 ## Workflow to retrieve 3 distinct colours from image
 
@@ -74,12 +92,12 @@ im_gray <- im %>%
   as.data.frame() 
 ## combine RGB info and Luminance Value Dataset together.
 im_df <- im_rgb %>% 
-  inner_join(im_gray) 
+  inner_join(im_gray)
 
 
 ## Pick k value to run kMean althorithm.
 ## But to extract colours, I'd pick k as number I want back! 
-my_k <- 3
+my_k <- 4
 
 ## Running kmeans algorithm on red, green and blue value to gather similar colour together
 kmean_rgb <- kmeans(im_df %>% select(red,green,blue), centers=my_k)
