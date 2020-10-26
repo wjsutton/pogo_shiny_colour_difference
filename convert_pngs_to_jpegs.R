@@ -22,3 +22,5 @@ for(i in 1:length(file_and_path)){
   }
 }
 
+png_to_jpeg <- data.frame(png=pkmn_index$file,jpeg=pkmn_index$jpeg_file,stringsAsFactors = F)
+write.csv(png_to_jpeg,"data/png_to_jpeg.csv",row.names = F)
