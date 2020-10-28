@@ -8,6 +8,8 @@ A dataviz project looking at the differences in colour between shiny pokemon & n
 
 Images forked from github repo [ZeChrales/PogoAssets](https://github.com/ZeChrales/PogoAssets)
 
+Pokemon Metadata from [Kaggle Dataset](https://www.kaggle.com/rounakbanik/pokemon)
+
 :construction: Repo Under Construction :construction: 
 
 [Twitter][Twitter] :speech_balloon:&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[LinkedIn][LinkedIn] :necktie:&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[GitHub :octocat:][GitHub]&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Website][Website] :link:
@@ -22,4 +24,6 @@ Quick Link
 [LinkedIn]:https://www.linkedin.com/in/will-sutton-14711627/
 [GitHub]:https://github.com/wjsutton
 [Website]:https://wjsutton.github.io/
+
+
 
