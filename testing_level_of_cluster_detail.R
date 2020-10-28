@@ -3,10 +3,28 @@ library(imager)
 library(treemap) 
 library(ggvoronoi)
 
-colours <- read.csv("data/jpeg_main_colours.csv",stringsAsFactors = F)
-images <- read.csv("data/png_to_jpeg.csv",stringsAsFactors = F)
-jpegs <- images$jpeg
-whites <- unique(colours$colour_1)
+#colours <- read.csv("data/jpeg_main_colours.csv",stringsAsFactors = F)
+pkmn_index <- read.csv("data/pkmn_image_index.csv",stringsAsFactors = F)
+pkmn_meta <- read.csv("data/pokemon.csv",stringsAsFactors = F)
+png2jpeg <- read.csv("data/png_to_jpeg.csv",stringsAsFactors = F)
+
+pkmn_meta <- pkmn_meta %>% select(c(pokedex_number,name,generation))
+pkmn_meta$id <- ifelse(pkmn_meta$pokedex_number<10,paste0('00',pkmn_meta$pokedex_number)
+                       ,(ifelse(pkmn_meta$pokedex_number<100,paste0('0',pkmn_meta$pokedex_number)
+                       ,pkmn_meta$pokedex_number)))
+
+# just original pkmn
+pkmn_index <- pkmn_index %>% filter(variation == '_00')
+
+pkmn_df <- inner_join(pkmn_index,png2jpeg, by = c("file" = "png"))
+pkmn_df <- inner_join(pkmn_df,pkmn_meta, by = c("id" = "id"))
+
+pkmn_df$name_with_shiny_stat <- ifelse(pkmn_df$shiny_or_not==TRUE
+                                       ,paste0(pkmn_df$name," (shiny)")
+                                       ,pkmn_df$name)
+
+jpegs <- pkmn_df$jpeg
+#whites <- unique(colours$colour_1)
 
 # Removing whites
 # Testing more clusters
@@ -18,8 +36,8 @@ whites <- unique(colours$colour_1)
 # Tableau doesn't render colours in a column, which means a manual job
 # R - ggplot2 treemap and patchwork to knit files?
 
-for(i in 1:100){
-  i <- 295
+#for(i in 1:100){
+  i <- (442)*2 
   test_img <- paste0("jpegs/",jpegs[i])
   im <- load.image(test_img)
   
@@ -47,7 +65,7 @@ for(i in 1:100){
   
   ## Pick k value to run kMean althorithm.
   ## But to extract colours, I'd pick k as number I want back! 
-  my_k <- 6
+  my_k <- 5
   
   ## Running kmeans algorithm on red, green and blue value to gather similar colour together
   kmean_rgb <- kmeans(im_df %>% select(red,green,blue), centers=my_k)
@@ -77,15 +95,37 @@ for(i in 1:100){
                                  ,colour_3_count=image_count[3]
                                  ,stringsAsFactors = F)
   
-  if(i == 1){
-    output <- jpeg_and_colours
-  }
+  #if(i == 1){
+  #  output <- jpeg_and_colours
+  #}
   
-  if(i != 1){
-    output <- rbind(output,jpeg_and_colours)
-  }
+  #if(i != 1){
+  #  output <- rbind(output,jpeg_and_colours)
+  #}
   
-  if(i %% 25 == 0){
-    print(paste0(i," done."))
-  }
-}
+  #if(i %% 25 == 0){
+  #  print(paste0(i," done."))
+  #}
+#}
+  
+  
+  
+  # library
+  library(treemap)
+  
+  # Create data
+  name <- pkmn_df$name_with_shiny_stat[i]
+  group <- kmean_center$group_hex
+  value <- kmean_center$n
+  data <- data.frame(group,value)
+  
+  # treemap
+  png(filename="example_treemap.png",width=500, height=800)
+  treemap(data,
+          index="group",
+          vColor = "group",
+          vSize="value",
+          type="color",
+          title=name
+  )
+  dev.off()
