@@ -120,12 +120,29 @@ jpegs <- pkmn_df$jpeg
   data <- data.frame(group,value)
   
   # treemap
-  png(filename="example_treemap.png",width=500, height=800)
-  treemap(data,
+  #png(filename="example_treemap.png",width=500, height=800)
+  t1 <- treemap(data,
           index="group",
           vColor = "group",
           vSize="value",
           type="color",
           title=name
   )
-  dev.off()
+  #dev.off()
+
+  t2 <- t1
+  
+  library(ggplot2)
+  library(gridExtra)
+  
+  
+  # TRY
+  #https://stackoverflow.com/questions/31732359/combine-png-files-in-current-folder-to-a-single-png-file-in-r
+  
+  library(treemapify)
+  
+  ggplot(data, aes(area = value, fill = group, colour = group)) +
+    geom_treemap()
+  
+  grid.arrange(t1, t2, ncol = 2)
+  
