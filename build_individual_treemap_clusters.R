@@ -18,13 +18,14 @@ existing_images <- c(
 )
 file.remove(existing_images)
 
-# List of all pkmn (shniy and not)
-all_pkmn <- unique(treemap_df$file)
+# List of all pkmn (shiny and not)
+gen_1 <- filter(treemap_df,generation == 1)
+all_pkmn <- unique(gen_1$file)
 
 for(i in 1:length(all_pkmn)){
   
   # filter to 1 pkmn
-  pkmn <- filter(treemap_df,file == all_pkmn[i])
+  pkmn <- filter(gen_1,file == all_pkmn[i])
   
   for(k in 1:7){
     
@@ -37,18 +38,19 @@ for(i in 1:length(all_pkmn)){
     value <- pkmn_clust$n
     data <- data.frame(group,value)
     
-    # treemap
-    png(filename=paste0(k,"_cluster/",pokedex,"_",name,".png"),width=500, height=800)
-    t1 <- treemap(data,
-                  index="group",
-                  vColor = "group",
-                  vSize="value",
-                  type="color",
-                  fontsize.labels=0,
-                  title=name)
-    dev.off()
+    ## treemap with name
+    #png(filename=paste0(k,"_cluster/",pokedex,"_",name,".png"),width=500, height=800)
+    #t1 <- treemap(data,
+    #              index="group",
+    #              vColor = "group",
+    #              vSize="value",
+    #              type="color",
+    #              fontsize.labels=0,
+    #              title=name)
+    #dev.off()
     
-    png(filename=paste0(k,"_cluster/",pokedex,"_",name,"_no_titles.png"),width=500, height=800)
+    ## treemap without name
+    png(filename=paste0(k,"_cluster/",pokedex,"_",name,".png"),width=500, height=800)
     t2 <- treemap(data,
                   index="group",
                   vColor = "group",
