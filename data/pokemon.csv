@@ -27,10 +27,10 @@ abilities,against_bug,against_dark,against_dragon,against_electric,against_fairy
 "['Static', 'Lightningrod', 'Surge Surfer']",1,1,1,0.5,1,1,1,0.5,1,1,2,1,1,1,1,1,0.5,1,85,2560,70,485,75,Mouse Pokémon,50,1000000,,60,Raichuライチュウ,Raichu,50,26,95,85,110,electric,electric,,1,0
 "['Sand Veil', 'Sand Rush', 'Snow Cloak', 'Slush Rush']",1,1,1,0,1,1,1,1,1,2,1,2,1,0.5,1,0.5,1,2,75,5120,70,300,255,Mouse Pokémon,90,1000000,,50,Sandサンド,Sandshrew,50,27,10,35,40,ground,ice,,1,0
 "['Sand Veil', 'Sand Rush', 'Snow Cloak', 'Slush Rush']",1,1,1,0,1,1,1,1,1,2,1,2,1,0.5,1,0.5,1,2,100,5120,70,450,90,Mouse Pokémon,120,1000000,,75,Sandpanサンドパン,Sandslash,50,28,25,65,65,ground,ice,,1,0
-"['Poison Point', 'Rivalry', 'Hustle']",0.5,1,1,1,0.5,0.5,1,1,1,0.5,2,1,1,0.5,2,1,1,1,47,5120,70,275,235,Poison Pin Pokémon,52,1059860,0.4,55,Nidoran?ニドラン♀,Nidoran♀,0,29,40,40,41,poison,,7.0,1,0
+"['Poison Point', 'Rivalry', 'Hustle']",0.5,1,1,1,0.5,0.5,1,1,1,0.5,2,1,1,0.5,2,1,1,1,47,5120,70,275,235,Poison Pin Pokémon,52,1059860,0.4,55,Nidoran?ニドラン♀,Nidoran_female,0,29,40,40,41,poison,,7.0,1,0
 "['Poison Point', 'Rivalry', 'Hustle']",0.5,1,1,1,0.5,0.5,1,1,1,0.5,2,1,1,0.5,2,1,1,1,62,5120,70,365,120,Poison Pin Pokémon,67,1059860,0.8,70,Nidorinaニドリーナ,Nidorina,0,30,55,55,56,poison,,20.0,1,0
 "['Poison Point', 'Rivalry', 'Sheer Force']",0.5,1,1,0,0.5,0.5,1,1,1,1,2,2,1,0.25,2,0.5,1,2,92,5120,70,505,45,Drill Pokémon,87,1059860,1.3,90,Nidoqueenニドクイン,Nidoqueen,0,31,75,85,76,poison,ground,60.0,1,0
-"['Poison Point', 'Rivalry', 'Hustle']",0.5,1,1,1,0.5,0.5,1,1,1,0.5,2,1,1,0.5,2,1,1,1,57,5120,70,273,235,Poison Pin Pokémon,40,1059860,0.5,46,Nidoran?ニドラン♂,Nidoran♂,100,32,40,40,50,poison,,9.0,1,0
+"['Poison Point', 'Rivalry', 'Hustle']",0.5,1,1,1,0.5,0.5,1,1,1,0.5,2,1,1,0.5,2,1,1,1,57,5120,70,273,235,Poison Pin Pokémon,40,1059860,0.5,46,Nidoran?ニドラン♂,Nidoran_male,100,32,40,40,50,poison,,9.0,1,0
 "['Poison Point', 'Rivalry', 'Hustle']",0.5,1,1,1,0.5,0.5,1,1,1,0.5,2,1,1,0.5,2,1,1,1,72,5120,70,365,120,Poison Pin Pokémon,57,1059860,0.9,61,Nidorinoニドリーノ,Nidorino,100,33,55,55,65,poison,,19.5,1,0
 "['Poison Point', 'Rivalry', 'Sheer Force']",0.5,1,1,0,0.5,0.5,1,1,1,1,2,2,1,0.25,2,0.5,1,2,102,5120,70,505,45,Drill Pokémon,77,1059860,1.4,81,Nidokingニドキング,Nidoking,100,34,85,75,85,poison,ground,62.0,1,0
 "['Cute Charm', 'Magic Guard', 'Friend Guard']",0.5,0.5,0,1,1,0.5,1,1,1,1,1,1,1,2,1,1,2,1,45,2560,140,323,150,Fairy Pokémon,48,800000,0.6,70,Pippiピッピ,Clefairy,24.6,35,60,65,35,fairy,,7.5,1,0
