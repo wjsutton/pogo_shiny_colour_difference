@@ -65,6 +65,6 @@ plots <- lapply(ll <- all_images,function(x){
 })
 
 ggsave(paste0('gen1_shiny_comparison.png')
-       ,width=4, height=4*length(all_images), 
+       ,width=20, height=4*length(all_images), 
        marrangeGrob(grobs = plots, nrow=length(all_images), ncol=1,top=NULL))
 
