@@ -26,7 +26,7 @@ pkmn_df$name_with_shiny_stat <- ifelse(pkmn_df$shiny_or_not==TRUE
                                        ,paste0(pkmn_df$name," (shiny)")
                                        ,pkmn_df$name)
 
-i <- 101
+i <- 157
   
 test_img <- paste0("jpegs/",pkmn_df$jpeg[i])
 im <- load.image(test_img)
@@ -131,12 +131,16 @@ chart_df
 #install.packages("NbClust",dependencies = TRUE)
 library(NbClust)
 nb <- NbClust(im_df %>% select(red,green,blue), diss=NULL, distance = "euclidean", 
-              min.nc=5, max.nc=7, method = "kmeans", 
+              min.nc=4, max.nc=7, method = "kmeans", 
               index = "all", alphaBeale = 0.1)
 hist(nb$Best.nc[1,], breaks = max(na.omit(nb$Best.nc[1,])))
 
 df <- as.data.frame(ftable(nb$Best.nc[1,]))
 best_cluster <- df[df$Freq == max(table(nb$Best.nc[1,])),]$Var1
+# prefer smaller cluster
+best_cluster <- as.integer(as.character(best_cluster))
+best_cluster <- min(best_cluster)
+best_cluster_pc <- best_cluster/sum(df$Freq)
 
 print(paste0("best cluster for ",unique(output_df$name_with_shiny_stat)," is ",best_cluster))
 end_time <- Sys.time()
