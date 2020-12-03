@@ -122,6 +122,17 @@ lineplot <- ggplot(chart_df, aes(x=number_of_clusters, y=total_ss)) +
 lineplot
 chart_df
 
+
+
+library(mclust)
+# Run the function to see how many clusters
+# it finds to be optimal, set it to search for
+# at least 1 model and up 20.
+d_clust <- Mclust(as.matrix(im_df %>% select(red,green,blue)), G=1:7)
+m.best <- dim(d_clust$z)[2]
+cat("model-based optimal number of clusters:", m.best, "\n")
+
+
 #library(mclust)
 #d_clust <- Mclust(as.matrix(im_df %>% select(red,green,blue)), G=1:7, 
 #                  modelNames = mclust.options("emModelNames"))

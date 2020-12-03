@@ -1,0 +1,11 @@
+"file","shiny_or_not","id","variation","jpeg","pokedex_number","name","generation","name_with_shiny_stat","best_cluster"
+"pokemon_icon_001_00.png",FALSE,"001","_00","pokemon_icon_001_00.jpeg",1,"Bulbasaur",1,"Bulbasaur",7
+"pokemon_icon_001_00_shiny.png",TRUE,"001","_00","pokemon_icon_001_00_shiny.jpeg",1,"Bulbasaur",1,"Bulbasaur (shiny)",7
+"pokemon_icon_002_00.png",FALSE,"002","_00","pokemon_icon_002_00.jpeg",2,"Ivysaur",1,"Ivysaur",7
+"pokemon_icon_002_00_shiny.png",TRUE,"002","_00","pokemon_icon_002_00_shiny.jpeg",2,"Ivysaur",1,"Ivysaur (shiny)",7
+"pokemon_icon_003_00.png",FALSE,"003","_00","pokemon_icon_003_00.jpeg",3,"Venusaur",1,"Venusaur",7
+"pokemon_icon_003_00_shiny.png",TRUE,"003","_00","pokemon_icon_003_00_shiny.jpeg",3,"Venusaur",1,"Venusaur (shiny)",7
+"pokemon_icon_004_00.png",FALSE,"004","_00","pokemon_icon_004_00.jpeg",4,"Charmander",1,"Charmander",7
+"pokemon_icon_004_00_shiny.png",TRUE,"004","_00","pokemon_icon_004_00_shiny.jpeg",4,"Charmander",1,"Charmander (shiny)",7
+"pokemon_icon_005_00.png",FALSE,"005","_00","pokemon_icon_005_00.jpeg",5,"Charmeleon",1,"Charmeleon",7
+"pokemon_icon_005_00_shiny.png",TRUE,"005","_00","pokemon_icon_005_00_shiny.jpeg",5,"Charmeleon",1,"Charmeleon (shiny)",7

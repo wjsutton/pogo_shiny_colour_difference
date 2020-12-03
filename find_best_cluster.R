@@ -2,7 +2,7 @@ library(tidyverse)
 library(imager) 
 library(treemap) 
 library(ggvoronoi)
-library(NbClust)
+library(mclust)
 
 set.seed(1)
 start_time <- Sys.time()
@@ -28,7 +28,7 @@ pkmn_df$name_with_shiny_stat <- ifelse(pkmn_df$shiny_or_not==TRUE
                                        ,pkmn_df$name)
 
 
-for(i in 1:10){
+for(i in 1:length(pkmn_df$jpeg)){
   test_img <- paste0("jpegs/",pkmn_df$jpeg[i])
   im <- load.image(test_img)
   
@@ -58,21 +58,21 @@ for(i in 1:10){
   im_df <- subset(im_df,!(substr(hexvalue,1,2) %in% c('#F','#E')))
   
   # library(NbClust)
-  nb <- NbClust(im_df %>% select(red,green,blue), diss=NULL, distance = "euclidean", 
-                min.nc=4, max.nc=7, method = "kmeans", 
-                index = "all", alphaBeale = 0.1)
-  hist(nb$Best.nc[1,], breaks = max(na.omit(nb$Best.nc[1,])))
+  d_clust <- Mclust(as.matrix(im_df %>% select(red,green,blue)), G=1:7)
+  m.best <- dim(d_clust$z)[2]
+  cat("model-based optimal number of clusters:", m.best, "\n")
+  best_cluster <- m.best
   
-  df <- as.data.frame(ftable(nb$Best.nc[1,]))
-  best_cluster <- df[df$Freq == max(table(nb$Best.nc[1,])),]$Var1
+  #df <- as.data.frame(ftable(nb$Best.nc[1,]))
+  #best_cluster <- df[df$Freq == max(table(nb$Best.nc[1,])),]$Var1
   # prefer smaller cluster
-  best_cluster <- as.integer(as.character(best_cluster))
-  best_cluster <- min(best_cluster)
-  best_cluster_pc <- best_cluster/sum(df$Freq)
+  #best_cluster <- as.integer(as.character(best_cluster))
+  #best_cluster <- min(best_cluster)
+  #best_cluster_pc <- best_cluster/sum(df$Freq)
   
   output <- pkmn_df[i,]
   output$best_cluster <- best_cluster
-  output$best_cluster_pc <- best_cluster_pc
+  #output$best_cluster_pc <- best_cluster_pc
   
   if(i == 1){
     output_df <- output
