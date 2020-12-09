@@ -31,4 +31,4 @@ pkmn_metadata <- pkmn_metadata[,c('pokedex_number','type1','type2')]
 
 output_df <- inner_join(output_df,pkmn_metadata,by = c( 'pokedex_number'= 'pokedex_number'))
 
-write.csv(output_df,"pokemon_colour_distance_for_tableau.csv",row.names = F)
+write.csv(output_df,"data/pokemon_colour_distance_for_tableau.csv",row.names = F)
