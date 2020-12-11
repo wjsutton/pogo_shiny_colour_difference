@@ -56,3 +56,29 @@ And hence the motivation for this project, can we determine which Pokemon differ
 - determine which cluster is the best
 
 ![](143_Snorlax_shiny_comparison.png)
+
+
+### Splitting Project Workflows
+
+The project has gone down a bit of a rabbit hole and needs to get more focused so that some objectives can be achieved. 
+
+Calculating the difference in Pokemon colour only requires a single non-white cluster, using multiple clusters achieves the same results as just one cluster as we are calculating the weighted average difference in colour. However multiple clusters has provided interesting colour palettes that could be used for dashboard colour palettes.
+
+###  To Do
+
+**Create workflow For calculating difference in colour:**
+
+- [ ] read images
+- [ ] remove white background
+- [ ] run kmeans k = 1 cluster 
+- [ ] create comparison output file for Tableau
+- [ ] create image output folder (one shiny, one not-shiny) for Tableau shapes location
+
+**Create workflow for extracting multiple colours for palettes:**
+
+- [ ] read images
+- [ ] remove white background
+- [ ] run kmeans k >= 1 cluster 
+- [ ] create output file of possible colours by number of clusters
+- [ ] create example comparison rails
+
