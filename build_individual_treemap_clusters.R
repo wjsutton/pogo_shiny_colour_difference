@@ -38,17 +38,6 @@ for(i in 1:length(all_pkmn)){
     value <- pkmn_clust$n
     data <- data.frame(group,value)
     
-    ## treemap with name
-    #png(filename=paste0(k,"_cluster/",pokedex,"_",name,".png"),width=500, height=800)
-    #t1 <- treemap(data,
-    #              index="group",
-    #              vColor = "group",
-    #              vSize="value",
-    #              type="color",
-    #              fontsize.labels=0,
-    #              title=name)
-    #dev.off()
-    
     ## treemap without name
     png(filename=paste0(k,"_cluster/",pokedex,"_",name,".png"),width=500, height=800)
     t2 <- treemap(data,

@@ -63,13 +63,6 @@ for(i in 1:length(pkmn_df$jpeg)){
   cat("model-based optimal number of clusters:", m.best, "\n")
   best_cluster <- m.best
   
-  #df <- as.data.frame(ftable(nb$Best.nc[1,]))
-  #best_cluster <- df[df$Freq == max(table(nb$Best.nc[1,])),]$Var1
-  # prefer smaller cluster
-  #best_cluster <- as.integer(as.character(best_cluster))
-  #best_cluster <- min(best_cluster)
-  #best_cluster_pc <- best_cluster/sum(df$Freq)
-  
   output <- pkmn_df[i,]
   output$best_cluster <- best_cluster
   #output$best_cluster_pc <- best_cluster_pc
