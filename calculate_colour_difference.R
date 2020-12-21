@@ -27,6 +27,14 @@ names(output_df) <- c('non_shiny_file','id','pokedex_number','name','generation'
                       'red_shiny','green_shiny','blue_shiny','colour_distance')
 
 pkmn_metadata <- read.csv("data/pokemon.csv",stringsAsFactors = F)
+
+# Some alola pokemon types have been merged in 
+# e.g. vulpix is fire ice, rather than just fire
+# pkmn 'Geodude','Graveler','Golem','Exeggutor' types look fine
+alola_pkmn <- c('Rattata','Raticate','Raichu','Sandshrew','Sandslash','Vulpix','Ninetales',
+                'Diglett','Dugtrio','Meowth','Persian','Grimer','Muk','Marowak')
+
+pkmn_metadata$type2 <- ifelse(pkmn_metadata$name %in% alola_pkmn ,'',pkmn_metadata$type2)
 pkmn_metadata <- pkmn_metadata[,c('pokedex_number','type1','type2')]
 
 output_df <- inner_join(output_df,pkmn_metadata,by = c( 'pokedex_number'= 'pokedex_number'))
