@@ -58,27 +58,19 @@ And hence the motivation for this project, can we determine which Pokemon differ
 ![](143_Snorlax_shiny_comparison.png)
 
 
-### Splitting Project Workflows
+### Calculating the difference colour
 
-The project has gone down a bit of a rabbit hole and needs to get more focused so that some objectives can be achieved. 
+For calculating the colour difference we only require the average colour of the pokemon icon, for which we can use the example of clustering with kmeans on k = 1. Taking the red, green and blue (RGB) colour values of the Pokemon's average colour we calculate the Euclidean distance between RGB of the regular Pokemon and the shiny version. e.g.
 
-Calculating the difference in Pokemon colour only requires a single non-white cluster, using multiple clusters achieves the same results as just one cluster as we are calculating the weighted average difference in colour. However multiple clusters has provided interesting colour palettes that could be used for dashboard colour palettes.
+```
+comparison$distance <- sqrt(
+  (comparison$red.x - comparison$red.y)^2
+  + (comparison$green.x - comparison$green.y)^2
+  + (comparison$blue.x - comparison$blue.y)^2
+)
+```
+The value returned is the distance between these two points if they where plots of a 3-dimensional axis. The numbers can be compared against one another where a large number indicates the points are further away and that the difference in colour is greater.
 
-###  To Do
 
-**Create workflow For calculating difference in colour:**
 
-- [ ] read images
-- [ ] remove white background
-- [ ] run kmeans k = 1 cluster 
-- [ ] create comparison output file for Tableau
-- [ ] create image output folder (one shiny, one not-shiny) for Tableau shapes location
-
-**Create workflow for extracting multiple colours for palettes:**
-
-- [ ] read images
-- [ ] remove white background
-- [ ] run kmeans k >= 1 cluster 
-- [ ] create output file of possible colours by number of clusters
-- [ ] create example comparison rails
 
