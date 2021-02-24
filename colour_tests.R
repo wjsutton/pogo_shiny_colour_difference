@@ -56,8 +56,12 @@ rgb2cmyk(r = 228, g = 208, b = 255)
 
 hex <- hex[1]
 rgb <- as.rgb(hex)
+rgb_text <- paste0(rgb[1],', ',rgb[2],', ',rgb[3])
 hsl <- as.hsl(hex)
+hsl_text <- paste0(hsl[1],', ',hsl[2]*100,'%, ',hsl[3]*100,'%')
 cmyk <- rgb2cmyk(r = rgb[1],g = rgb[2], b = rgb[3])
+cmyk <- round(cmyk*100,0)
+cmyk_text <- paste0(cmyk[1],'%, ',cmyk[2],'%, ',cmyk[3],'%, ',cmyk[4],'%')
 colour_name <- tools::toTitleCase(names(rgb2col(r = rgb[1],g = rgb[2], b = rgb[3]))[1])
 text_colour <- cr_choose_bw(hex)
 alt_text_colour <- ifelse(text_colour=='black','white','black')
@@ -66,9 +70,19 @@ p4 <- ggplot() +
   annotate("rect", xmin = 0, xmax = 1, ymin = 0, ymax = 1,fill = hex) +
   annotate("rect", xmin = 0.1, xmax = 0.9, ymin = 0.1, ymax = 0.9,fill = text_colour) +
   annotate("rect", xmin = 0.11, xmax = 0.89, ymin = 0.3, ymax = 0.89,fill = hex) +
-  annotate("text", x = 0.13, y = 0.2, label = colour_name, hjust = 0, family = myFont1, size = 11,color = alt_text_colour) +
-  xlim(0,1) +
-  ylim(0,1) +
+  annotate("text", x = 0.15, y = 0.2, label = colour_name, hjust = 0, family = myFont1, size = 32,color = alt_text_colour) +
+  annotate("text", x = 0.20, y = 0.75, label = 'HEX', hjust = 0, family = myFont1, size = 11,color = text_colour) +
+  annotate("text", x = 0.20, y = 0.70, label = hex, hjust = 0, family = myFont1, size = 11,color = text_colour) +
+  annotate("text", x = 0.20, y = 0.5, label = 'HSL', hjust = 0, family = myFont1, size = 11,color = text_colour) +
+  annotate("text", x = 0.20, y = 0.45, label = hsl_text, hjust = 0, family = myFont1, size = 11,color = text_colour) +
+  annotate("text", x = 0.55, y = 0.75, label = 'RGB', hjust = 0, family = myFont1, size = 11,color = text_colour) +
+  annotate("text", x = 0.55, y = 0.70, label = rgb_text, hjust = 0, family = myFont1, size = 11,color = text_colour) +
+  annotate("text", x = 0.55, y = 0.5, label = 'CMYK', hjust = 0, family = myFont1, size = 11,color = text_colour) +
+  annotate("text", x = 0.55, y = 0.45, label = cmyk_text, hjust = 0, family = myFont1, size = 11,color = text_colour) +
+#  xlim(0,1) +
+#  ylim(0,1) +
+  scale_x_continuous(limits = c(0,1), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0,1), expand = c(0, 0)) +
   theme(
     panel.grid.major = element_blank() 
     ,panel.grid.minor = element_blank() 
@@ -81,35 +95,9 @@ p4 <- ggplot() +
     ,axis.title.x = element_blank() 
   )
 
-  annotate("text", x = 0.01, y = 0.5, label = unique(example$name_with_shiny_stat), hjust = 0, family = myFont1,size = 16) +
-  annotate("text", x = 0.01, y = 0.45, label = subtitle, hjust = 0, family = myFont1,size = 11) +
-  annotate("text", x = 0.08, y = 0.35, label = hex[1], hjust = 0, family = myFont1, size = 11) +
-  annotate("rect", xmin = 0.01, xmax = 0.07, ymin = 0.32, ymax = 0.38,fill = hex[1], color ='black') +
-  annotate("text", x = 0.08, y = 0.28, label = hex[2], hjust = 0, family = myFont1, size = 11) +
-  annotate("rect", xmin = 0.01, xmax = 0.07, ymin = 0.25, ymax = 0.31,fill = hex[2], color ='black') +
-  annotate("text", x = 0.08, y = 0.21, label = hex[3], hjust = 0, family = myFont1, size = 11) +
-  annotate("rect", xmin = 0.01, xmax = 0.07, ymin = 0.18, ymax = 0.24,fill = hex[3], color ='black') +
-  annotate("text", x = 0.08, y = 0.14, label = hex[4], hjust = 0, family = myFont1, size = 11) +
-  annotate("rect", xmin = 0.01, xmax = 0.07, ymin = 0.11, ymax = 0.17,fill = hex[4], color ='black') +
-  annotate("text", x = 0.34, y = 0.35, label = hex[5], hjust = 0, family = myFont1, size = 11) +
-  annotate("rect", xmin = 0.27, xmax = 0.33, ymin = 0.32, ymax = 0.38,fill = hex[5], color ='black') +
-  annotate("text", x = 0.34, y = 0.28, label = hex[6], hjust = 0, family = myFont1, size = 11) +
-  annotate("rect", xmin = 0.27, xmax = 0.33, ymin = 0.25, ymax = 0.31,fill = hex[6], color ='black') +
-  annotate("text", x = 0.34, y = 0.21, label = hex[7], hjust = 0, family = myFont1, size = 11) +
-  annotate("rect", xmin = 0.27, xmax = 0.33, ymin = 0.18, ymax = 0.24,fill = hex[7], color ='black') +
-  xlim(0,0.5) +
-  ylim(0,0.5) +
-  theme(
-    panel.grid.major = element_blank() 
-    ,panel.grid.minor = element_blank() 
-    ,panel.background = element_blank() 
-    ,axis.ticks.y = element_blank() 
-    ,axis.text.y = element_blank() 
-    ,axis.title.y = element_blank()
-    ,axis.ticks.x = element_blank() 
-    ,axis.text.x  = element_blank() 
-    ,axis.title.x = element_blank() 
-
+ggsave(paste0("poke_palettes/test_colour_v3.png")
+       ,plot = p4
+       ,width = 5, height = 5, dpi = 300, units = "in") 
 
 
 
