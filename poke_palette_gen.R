@@ -40,7 +40,7 @@ for(i in 1:20){
   treemap_file <- paste0(substr(chosen_file,14,17),unique(example$name_with_shiny_stat),'.png')
   
   # read in images
-  treemap <- readPNG(paste0('7_cluster/',treemap_file), native = TRUE)
+  treemap <- readPNG(paste0('palette_clusters/',treemap_file), native = TRUE)
   img <- readPNG(paste0('pokemon_icons/',chosen_file), native = TRUE)
   
   
