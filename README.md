@@ -71,6 +71,18 @@ comparison$distance <- sqrt(
 ```
 The value returned is the distance between these two points if they where plots of a 3-dimensional axis. The numbers can be compared against one another where a large number indicates the points are further away and that the difference in colour is greater.
 
+### Data Visualisation
 
+See the viz on Tableau Public:<br>
+<a href="https://public.tableau.com/profile/wjsutton#!/vizhome/ShinyPokemon/ShinyPokemonHowmuchdoestheircolourchange">
+<img src="https://public.tableau.com/static/images/Sh/ShinyPokemon/ShinyPokemonHowmuchdoestheircolourchange/1.png">
+</a>
 
+### Bonus
 
+Using the data from the pokemon colour clusters I've established an instagram account for Pokemon colour palettes
+
+See the colour palettes on Instagram:<br>
+<a href="https://www.instagram.com/poke_palettes/">
+<img src="https://pbs.twimg.com/media/EvF2MSAXIAIoMTO?format=jpg&name=small">
+</a>
