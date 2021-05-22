@@ -8,7 +8,7 @@ A dataviz project looking at the differences in colour between shiny pokemon & n
 
 Data Sources
  - Images forked from github repo [ZeChrales/PogoAssets](https://github.com/ZeChrales/PogoAssets)
- - Additional images available from[PokeMiners/pogo_assets](https://github.com/PokeMiners/pogo_assets)
+ - Additional images available from [PokeMiners/pogo_assets](https://github.com/PokeMiners/pogo_assets)
  - Pokemon Metadata from [Kaggle Dataset](https://www.kaggle.com/rounakbanik/pokemon)
 
 [Twitter][Twitter] :speech_balloon:&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[LinkedIn][LinkedIn] :necktie:&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[GitHub :octocat:][GitHub]&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Website][Website] :link:
